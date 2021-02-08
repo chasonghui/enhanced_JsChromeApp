@@ -9,4 +9,10 @@
 .toDo__button {
   margin-right: 10px;
   cursor: pointer;
+  opacity: 0.5;
+}
+.toDo__button:hover {
+  margin-right: 10px;
+  cursor: pointer;
+  opacity:0.9;
 }

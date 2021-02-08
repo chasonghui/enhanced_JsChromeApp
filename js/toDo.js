@@ -18,6 +18,18 @@ function saveToDo(text) {
   persistToDos();
 }
 
+function handleDone(event){
+  const target=event.target;
+  const li=target.parentElement;
+  const ul=li.parentElement;
+  const toDoid=li.id;
+  ul.removeChild(li);
+  toDos=toDos.filter(function(toDo){
+    return toDo.id!==parseInt(toDoId);
+  });
+  persistToDos();
+}
+
 function handleDelete(event) {
   const target = event.target;
   const li = target.parentElement;
@@ -30,13 +42,18 @@ function handleDelete(event) {
   persistToDos();
 }
 
+
 function addToDo(text) {
   const toDo = document.createElement("li");
   toDo.className = "toDo";
   toDo.id = toDos.length + 1;
   const deleteBtn = document.createElement("span");
-  deleteBtn.innerHTML = "❌";
+  const doneBtn = document.createElement("span");
+  doneBtn.innerHTML="✔"
+  deleteBtn.innerHTML = "x";
+  doneBtn.className="toDo__button"
   deleteBtn.className = "toDo__button";
+  doneBtn.addEventListener("click",handleDone);
   deleteBtn.addEventListener("click", handleDelete);
   const label = document.createElement("label");
   label.innerHTML = text;

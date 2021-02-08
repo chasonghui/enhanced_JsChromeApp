@@ -4,7 +4,7 @@ function paintName(name) {
   nameContainer.innerHTML = "";
   const title = document.createElement("span");
   title.className = "name__text";
-  title.innerHTML = `Hello ${name}`;
+  title.innerHTML = `Hi ${name}(●'◡'●)`;
   nameContainer.appendChild(title);
 }
 
