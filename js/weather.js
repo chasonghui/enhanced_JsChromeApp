@@ -25,11 +25,14 @@ function handleGeoSuccess(position) {
     lng
   };
   localStorage.setItem("coords", JSON.stringify(coords));
+  console.log(position);
   getWeather(coords);
+
 }
 
 function handleGeoFailure() {
   console.log("no location");
+  
 }
 
 function loadWeather() {
