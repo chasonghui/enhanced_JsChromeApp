@@ -2,18 +2,20 @@ const API_KEY = "7e477f605c19fe3a025d257043b559d3";//YOUR API_KEY
 const WEATHER_API = "https://api.openweathermap.org/data/2.5/weather?";
 
 const weather = document.querySelector(".js-weather .weather__text");
+const weatherIcon = document.querySelector('.weather-icon');
 
 function getWeather(coords) {
   fetch(
     `${WEATHER_API}lat=${coords.lat}&lon=${
       coords.lng
     }&appid=${API_KEY}&units=metric`
-  )
-    .then(response => response.json())
-    .then(json => {
+  ).then(response => response.json())
+  .then(json => {
       const name = json.name;
       const temperature = json.main.temp;
-      weather.innerHTML = `${Math.floor(temperature)}° @ ${name}`;
+      const feelsLike=json.main.feels_like;
+      const {icon} = json.weather[0];
+      weather.innerHTML = `<img src="icons/${icon}.png "><br> ${name} ${Math.floor(temperature)}° <br> feels like ${feelsLike}° `;
     });
 }
 

@@ -21,6 +21,7 @@
 .center .name__input:focus,
 .center .name__input:active {
   outline: none;
+
 }
 
 .center .name__text {
