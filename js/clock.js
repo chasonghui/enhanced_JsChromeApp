@@ -1,5 +1,7 @@
 const clock = document.querySelector(".js-clock .clock__text");
 const day = document.querySelector(".js-date .day__text");
+
+//시간 가져오기
 function getTime() {
   const now = new Date();
   const hours = now.getHours();
@@ -10,6 +12,8 @@ function getTime() {
   clock.innerHTML = time;
   return;
 }
+
+//날짜 가져오기
 function getDate(){
   const week = new Array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
   const now=new Date();
@@ -21,6 +25,7 @@ function getDate(){
   day.innerHTML = getdate;
   return;
 }
+
 function init() {
   getDate();
   getTime();

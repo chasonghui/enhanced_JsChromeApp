@@ -26,6 +26,10 @@ function loadBackground() {
   return;
 }
 
+function deleteBackground(){
+  localStorage.removeItem("bg");
+}
+
 function saveBackground(imageUrl, city, country, name) {
   const savedImage = localStorage.getItem("bg");
   if (savedImage !== null) {

@@ -1,13 +1,15 @@
 const nameContainer = document.querySelector(".js-name");
 
+//Hello name 출력 innerHTML
 function paintName(name) {
   nameContainer.innerHTML = "";
   const title = document.createElement("span");
   title.className = "name__text";
-  title.innerHTML = `Hi ${name}(●'◡'●)`;
+  title.innerHTML = `Hello ${name}`;
   nameContainer.appendChild(title);
 }
 
+//제출
 function handleSubmit(event) {
   event.preventDefault();
   const form = event.target;
@@ -17,6 +19,7 @@ function handleSubmit(event) {
   paintName(value);
 }
 
+//placeholder
 function paintInput() {
   const input = document.createElement("input");
   input.placeholder = "Type your name here";
@@ -28,6 +31,12 @@ function paintInput() {
   nameContainer.appendChild(form);
 }
 
+//이름 지우기
+function deletName(){
+  nameContainer.innerHTML="";
+}
+
+//이름 불러오기
 function loadName() {
   const name = localStorage.getItem("username");
   if (name === null) {
