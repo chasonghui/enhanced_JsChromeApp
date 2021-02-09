@@ -5,7 +5,9 @@ const UNSPLASH_URL = `https://api.unsplash.com/photos/random/?client_id=${UNSPLA
 const body = document.querySelector("body"),
   locationContainer = document.querySelector(".js-location span");
 
+//배경사진 불러오기
 function loadBackground() {
+  const refreshBtn = document.createElement("span");
   const savedImage = localStorage.getItem("bg");
   if (savedImage === null) {
     getBackground();
@@ -17,19 +19,23 @@ function loadBackground() {
     } else {
       body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url(${
         parsedImage.url
-      })`;
+        })`;
       locationContainer.innerHTML = `${parsedImage.name}, ${
         parsedImage.city
-      }, ${parsedImage.country}`;
+        }, ${parsedImage.country}`;
     }
   }
   return;
 }
 
-function deleteBackground(){
+//배경사진 새로고침
+function handleRefresh() {
   localStorage.removeItem("bg");
+  loadBackground();
+  window.location.reload();
 }
 
+//배경사진 저장하기
 function saveBackground(imageUrl, city, country, name) {
   const savedImage = localStorage.getItem("bg");
   if (savedImage !== null) {
@@ -49,6 +55,7 @@ function saveBackground(imageUrl, city, country, name) {
   return;
 }
 
+//배경사진 가져오기
 function getBackground() {
   fetch(UNSPLASH_URL)
     .then(response => response.json())
