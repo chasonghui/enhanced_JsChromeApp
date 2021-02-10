@@ -6,3 +6,5 @@ I simply added some features and css.
 1. User can change the background screen.   
 2. Completion of a task can be marked with a double-click event.   
 3. Add an emoji from the weather api   
+
+....Proceeding.............
